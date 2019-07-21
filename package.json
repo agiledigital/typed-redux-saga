@@ -1,0 +1,35 @@
+{
+  "name": "typed-redux-saga",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agiledigital/typed-redux-saga.git"
+  },
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "prettylint": "^1.0.0",
+    "redux-saga": "^1.0.5",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-immutable": "^6.0.1",
+    "tslint-sonarts": "^1.9.0",
+    "type-coverage": "^2.1.0",
+    "typescript": "^3.6.0-beta"
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "type-coverage": "type-coverage --strict --detail",
+    "format": "prettier --write '{src,test}/**/*.{ts,tsx}'",
+    "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'"
+  },
+  "prettier": {
+    "trailingComma": "all"
+  },
+  "typeCoverage": {
+    "atLeast": 86.79
+  }
+}
