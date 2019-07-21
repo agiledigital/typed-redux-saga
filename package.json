@@ -24,7 +24,8 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "type-coverage": "type-coverage --strict --detail",
     "format": "prettier --write '{src,test}/**/*.{ts,tsx}'",
-    "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'"
+    "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'",
+    "release": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish"
   },
   "prettier": {
     "trailingComma": "all"
