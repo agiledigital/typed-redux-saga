@@ -1,8 +1,20 @@
 # Typed Redux Saga
 
+[![npm](https://img.shields.io/npm/v/typed-redux-saga.svg)](https://www.npmjs.com/package/typed-redux-saga)
+
 An attempt to bring better TypeScript typing to redux-saga.
 
 Requires TypeScript 3.6.
+
+## Installation
+
+```sh
+# yarn
+yarn add typed-redux-saga
+
+# npm
+npm install typed-redux-saga
+```
 
 ## Usage
 
