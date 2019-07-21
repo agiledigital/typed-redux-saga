@@ -1,6 +1,6 @@
 {
   "name": "typed-redux-saga",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "main": "dist/index.js",
   "repository": {
