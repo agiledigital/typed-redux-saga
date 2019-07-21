@@ -1,6 +1,7 @@
 # Typed Redux Saga
 
 [![npm](https://img.shields.io/npm/v/typed-redux-saga.svg)](https://www.npmjs.com/package/typed-redux-saga)
+[![Build Status](https://travis-ci.org/agiledigital/typed-redux-saga.svg?branch=master)](https://travis-ci.org/agiledigital/typed-redux-saga)
 
 An attempt to bring better TypeScript typing to redux-saga.
 
