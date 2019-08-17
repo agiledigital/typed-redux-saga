@@ -799,10 +799,10 @@ typescript-tuple@^2.1.0:
   dependencies:
     typescript-compare "^0.0.2"
 
-typescript@^3.6.0-beta:
-  version "3.6.0-dev.20190720"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.0-dev.20190720.tgz#4e923216f285b923a93acec9489109931a0f6805"
-  integrity sha512-TRcmAodvIOzyFE+pSKOMtaGc/pUOcTMd1zJ2SFViEb/cL53fs+IQlA2DKSNrNnt7DVGySlAIR+Xfeg1NlSD/6Q==
+typescript@^3.6.1-rc:
+  version "3.6.1-rc"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.1-rc.tgz#9db650b25d8ef033d9e25b3057bdd1e102bb434b"
+  integrity sha512-u6AQN9AoocZKYSz8zcc1Qh/V/mbAO+BHc73fTiKlIdjzU60A8TesrK9/7kg3GM8o2RxNyCeOFpcevEtnfUyaLg==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

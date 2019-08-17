@@ -16,7 +16,7 @@
     "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
     "type-coverage": "^2.1.0",
-    "typescript": "^3.6.0-beta"
+    "typescript": "^3.6.1-rc"
   },
   "dependencies": {},
   "scripts": {
