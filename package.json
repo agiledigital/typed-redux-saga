@@ -11,12 +11,12 @@
     "prettier": "^1.18.2",
     "prettylint": "^1.0.0",
     "redux-saga": "^1.0.5",
-    "tslint": "^5.18.0",
+    "tslint": "^5.19.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.1.0",
-    "typescript": "^3.6.1-rc"
+    "type-coverage": "^2.2.0",
+    "typescript": "^3.6.2"
   },
   "dependencies": {},
   "scripts": {
