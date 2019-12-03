@@ -5,7 +5,7 @@
 
 An attempt to bring better TypeScript typing to redux-saga.
 
-Requires TypeScript 3.6.
+Requires TypeScript 3.6 or later.
 
 ## Installation
 
