@@ -24,8 +24,9 @@ Let's take the example from https://redux-saga.js.org/#sagasjs
 ### Before
 
 ```typescript
-import { call } from "redux-saga/effects";
+import { call, all } from "redux-saga/effects";
 // Let's assume Api.fetchUser() returns Promise<User>
+// Api.fetchConfig1/fetchConfig2 returns Promise<Config1>, Promise<Config2>
 import Api from "...";
 
 function* fetchUser(action) {
@@ -34,20 +35,39 @@ function* fetchUser(action) {
   ...
 }
 
+function* fetchConfig() {}
+  // `result` has type any
+  const result = yield all({
+    api1: call(Api.fetchConfig1),
+    api2: call(Api.fetchConfig2),
+  });
+  ...
+}
 ```
 
 ### After
 
 ```typescript
 // Note we import `call` from typed-redux-saga
-import { call } from "typed-redux-saga";
+import { call, all } from "typed-redux-saga";
 // Let's assume Api.fetchUser() returns Promise<User>
+// Api.fetchConfig1/fetchConfig2 returns Promise<Config1>, Promise<Config2>
 import Api from "...";
 
 function* fetchUser(action) {
   // Note yield is replaced with yield*
   // `user` now has type User, not any!
   const user = yield* call(Api.fetchUser, action.payload.userId);
+  ...
+}
+
+function* fetchConfig() {}
+  // Note yield is replaced with yield*
+  // `result` now has type {api1: Config1, api2: Config2}
+  const result = yield* all({
+    api1: call(Api.fetchConfig1),
+    api2: call(Api.fetchConfig2),
+  });
   ...
 }
 ```
