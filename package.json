@@ -1,36 +1,64 @@
 {
   "name": "typed-redux-saga",
   "version": "0.4.0",
+  "description": "Redux-Saga effects with strong types.",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/agiledigital/typed-redux-saga.git"
   },
+  "bugs": {
+    "url": "https://github.com/agiledigital/typed-redux-saga/issues"
+  },
+  "keywords": [
+    "redux-saga",
+    "saga"
+  ],
+  "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-typescript": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.1.0",
     "prettier": "^1.18.2",
-    "prettylint": "^1.0.0",
-    "redux-saga": "^1.1.1",
-    "tslint": "^6.0.0-beta0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-immutable": "^6.0.1",
-    "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.3.0",
+    "redux-saga": "^1.1.3",
+    "redux-saga-test-plan": "^4.0.0-rc.3",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.29.1",
+    "tslib": "^1.10.0",
     "typescript": "^3.6.4"
   },
-  "dependencies": {},
   "scripts": {
-    "build": "tsc",
-    "lint": "tslint -p tsconfig.json -c tslint.json",
-    "type-coverage": "type-coverage --strict --detail",
-    "format": "prettier --write '{src,test}/**/*.{ts,tsx}'",
-    "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'",
-    "release": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish"
+    "lint": "eslint --ext=.ts,.js,.tsx,.jsx src rollup.config.js",
+    "lint:fix": "${npm_execpath} run lint --fix",
+    "types": "tsc --noEmit",
+    "types:watch": "${npm_execpath} run types -w",
+    "build": "${npm_execpath} run build:clean && ${npm_execpath} run build:types && ${npm_execpath} run build:js",
+    "build:clean": "rimraf dist/",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "test": "jest",
+    "check": "${npm_execpath} run types && ${npm_execpath} run lint && ${npm_execpath} run test",
+    "publish": "${npm_execpath} run check && ${npm_execpath} run build && ${npm_execpath} publish --no-git-tag-version"
   },
-  "prettier": {
-    "trailingComma": "all"
-  },
-  "typeCoverage": {
-    "atLeast": 87.5
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "coverageDirectory": "./coverage/"
   }
 }
