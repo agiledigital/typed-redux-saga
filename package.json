@@ -20,45 +20,36 @@
     "redux-saga",
     "saga"
   ],
+  "peerDependencies": {
+    "redux-saga": "^1.1.3"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "@rollup/plugin-typescript": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.17.0",
-    "@typescript-eslint/parser": "^2.17.0",
+    "copyfiles": "^2.2.0",
+    "dtslint": "^2.0.5",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "jest": "^25.1.0",
+    "nunjucks": "^3.2.0",
     "prettier": "^1.18.2",
     "redux-saga": "^1.1.3",
-    "redux-saga-test-plan": "^4.0.0-rc.3",
     "rimraf": "^3.0.0",
-    "rollup": "^1.29.1",
-    "tslib": "^1.10.0",
-    "typescript": "^3.6.4"
+    "rollup": "^1.29.1"
   },
   "scripts": {
-    "lint": "eslint --ext=.ts,.js,.tsx,.jsx src rollup.config.js",
-    "lint:fix": "${npm_execpath} run lint --fix",
-    "types": "tsc --noEmit",
-    "types:watch": "${npm_execpath} run types -w",
-    "build": "${npm_execpath} run build:clean && ${npm_execpath} run build:types && ${npm_execpath} run build:js",
+    "generate:templates": "node generateTemplates.js",
+    "lint": "${npm_execpath} run lint:eslint && ${npm_execpath} run lint:dts",
+    "lint:eslint": "eslint --ext=.js src rollup.config.js generateTemplates.js",
+    "lint:fix": "${npm_execpath} run eslint --fix",
+    "lint:dts": "dtslint types",
+    "build": "${npm_execpath} run build:clean && ${npm_execpath} run build:dts && ${npm_execpath} run build:js",
     "build:clean": "rimraf dist/",
-    "build:types": "tsc --emitDeclarationOnly",
+    "build:dts": "copyfiles -u 1 types/**/*.d.ts dist/",
     "build:js": "rollup -c",
-    "test": "jest",
-    "check": "${npm_execpath} run types && ${npm_execpath} run lint && ${npm_execpath} run test",
-    "publish": "${npm_execpath} run check && ${npm_execpath} run build && ${npm_execpath} publish --no-git-tag-version"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ],
-    "coverageDirectory": "./coverage/"
+    "publish": "${npm_execpath} run lint && ${npm_execpath} run build && ${npm_execpath} publish --no-git-tag-version"
   }
 }

@@ -3,7 +3,5 @@ install:
   - yarn install --frozen-lockfile
 script:
   - yarn run lint
-  - yarn run types
-  - yarn run test
   - yarn run build
   

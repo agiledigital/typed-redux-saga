@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "allowJs": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "types": [],
+    "lib": ["es6"],
+    "baseUrl": ".",
+      "paths": { "typed-redux-saga": ["."] }
+    }
+}
