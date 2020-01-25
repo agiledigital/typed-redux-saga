@@ -71,3 +71,7 @@ function* fetchConfig() {}
   ...
 }
 ```
+
+Credits
+
+Thanks to all the [contributors](https://github.com/agiledigital/typed-redux-saga/graphs/contributors) and especially thanks to [@gilbsgilbs](https://github.com/gilbsgilbs) for his huge contribution.
