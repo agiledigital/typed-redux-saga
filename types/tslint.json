@@ -1,0 +1,11 @@
+{
+    "extends": "dtslint/dtslint.json",
+    "linterOptions": {
+        "exclude": [
+          "*.d.ts"
+        ]
+    },
+    "rules": {
+      "semicolon": false
+    }
+}

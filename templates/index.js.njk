@@ -1,0 +1,41 @@
+/* This file is generated. Do not edit it. */
+{% set effects = [
+  'take',
+  'takeMaybe',
+  'takeEvery',
+  'takeLatest',
+  'takeLeading',
+  'put',
+  'putResolve',
+  'call',
+  'apply',
+  'cps',
+  'fork',
+  'spawn',
+  'join',
+  'cancel',
+  'select',
+  'actionChannel',
+  'flush',
+  'cancelled',
+  'setContext',
+  'getContext',
+  'delay',
+  'throttle',
+  'debounce',
+  'retry',
+  'all',
+  'race'
+] %}
+import {
+  {% for effect in effects %}
+  {{ effect }} as raw{{ (effect.slice(0, 1) | upper) ~ effect.slice(1) }},
+  {%- endfor %}
+} from "redux-saga/effects";
+
+{% for effect in effects %}
+/* This file is generated. Do not edit it. */
+export function* {{ effect }}(...args) {
+  return yield raw{{ (effect.slice(0, 1) | upper) ~ effect.slice(1) }}(...args);
+}
+{% endfor %}

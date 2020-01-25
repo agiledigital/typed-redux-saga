@@ -1,0 +1,27 @@
+env:
+  browser: false
+  node: true
+  es6: true
+  jest: true
+plugins:
+  - 'prettier'
+  - import
+extends:
+  - 'eslint:recommended'
+  - 'plugin:prettier/recommended'
+  - 'plugin:import/errors'
+  - 'plugin:import/warnings'
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+rules:
+  'import/order':
+    - error
+    - alphabetize:
+        order: asc
+  'import/export':
+    - off
+  'prettier/prettier':
+    - error
+    - trailingComma: all
+      printWidth: 79
