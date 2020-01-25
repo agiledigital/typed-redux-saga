@@ -1,6 +1,6 @@
 {
   "name": "typed-redux-saga",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Redux-Saga effects with strong types.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -50,6 +50,6 @@
     "build:clean": "rimraf dist/",
     "build:dts": "copyfiles -u 1 types/**/*.d.ts dist/",
     "build:js": "rollup -c",
-    "publish": "${npm_execpath} run lint && ${npm_execpath} run build && ${npm_execpath} publish --no-git-tag-version"
+    "release": "${npm_execpath} run lint && ${npm_execpath} run build && ${npm_execpath} publish --no-git-tag-version"
   }
 }
