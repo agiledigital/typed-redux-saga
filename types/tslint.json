@@ -6,6 +6,7 @@
         ]
     },
     "rules": {
-      "semicolon": false
+      "semicolon": false,
+      "interface-over-type-literal": false
     }
 }
