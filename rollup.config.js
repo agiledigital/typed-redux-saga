@@ -5,14 +5,14 @@
 import pkg from "./package.json";
 
 export default {
-  input: "src/index.js",
+  input: ["src/index.js", "src/macro.js"],
   output: [
     {
-      file: pkg.main,
+      dir: "dist/cjs/",
       format: "cjs",
     },
     {
-      file: pkg.module,
+      dir: "dist/es/",
       format: "es",
     },
   ],
