@@ -1,6 +1,6 @@
 {
   "name": "typed-redux-saga",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Redux-Saga effects with strong types.",
   "license": "MIT",
   "main": "dist/index.js",
