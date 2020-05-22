@@ -2,10 +2,10 @@ import { SagaIterator, channel } from "redux-saga";
 import * as Effects from "typed-redux-saga";
 
 function* mySaga(): Effects.SagaGenerator<void> {
-  yield* Effects.take("FOO"); // $ExpectType any
+  yield* Effects.take("FOO"); // $ExpectType Action<any>
   type FooAction = {type: "FOO"};
   yield* Effects.take<FooAction>("FOO"); // $ExpectType FooAction
-  yield* Effects.takeMaybe("FOO"); // $ExpectType any
+  yield* Effects.takeMaybe("FOO"); // $ExpectType Action<any>
   yield* Effects.takeMaybe<FooAction>("FOO"); // $ExpectType FooAction
 
   const chan = channel<"FOO">();
