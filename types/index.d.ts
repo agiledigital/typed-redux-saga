@@ -41,9 +41,6 @@ import {
 
 export type SagaGenerator<RT, E extends Effect = Effect<any, any>> = Generator<E, RT>;
 
-export function take(
-  pattern?: ActionPattern,
-): SagaGenerator<any, TakeEffect>;
 export function take<A extends Action>(
   pattern?: ActionPattern<A>,
 ): SagaGenerator<A, TakeEffect>;
@@ -51,10 +48,10 @@ export function take<T>(
   channel: TakeableChannel<T>,
   multicastPattern?: Pattern<T>,
 ): SagaGenerator<T, ChannelTakeEffect<T>>;
-
-export function takeMaybe(
+export function take(
   pattern?: ActionPattern,
 ): SagaGenerator<any, TakeEffect>;
+                          
 export function takeMaybe<A extends Action>(
   pattern?: ActionPattern<A>,
 ): SagaGenerator<A, TakeEffect>;
@@ -62,6 +59,9 @@ export function takeMaybe<T>(
   channel: TakeableChannel<T>,
   multicastPattern?: Pattern<T>,
 ): SagaGenerator<T, ChannelTakeEffect<T>>;
+export function takeMaybe(
+  pattern?: ActionPattern,
+): SagaGenerator<any, TakeEffect>;
 
 export function takeEvery<P extends ActionPattern>(
   pattern: P,
