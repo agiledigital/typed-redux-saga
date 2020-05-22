@@ -11,7 +11,7 @@ const env = new nunjucks.Environment(new nunjucks.FileSystemLoader("."), {
 
 const templatePaths = fs
   .readdirSync(TEMPLATES_PATH)
-  .filter(s => s.endsWith(".njk"));
+  .filter((s) => s.endsWith(".njk"));
 
 for (const templatePath of templatePaths) {
   console.log(`Rendering ${templatePath}.`);
