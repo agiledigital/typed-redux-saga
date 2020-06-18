@@ -27,6 +27,19 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.putResolve({ type: "FOO" }); // $ExpectType { type: string; }
 
   // $ExpectType number
+  yield* Effects.call(function(): number {
+    return 22;
+  });
+
+  // $ExpectType number
+  yield* Effects.call(() => 22);
+
+  // $ExpectType number
+  yield* Effects.call(function(): Promise<number> {
+    return Promise.resolve(22);
+  });
+
+  // $ExpectType number
   yield* Effects.call(function*(): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
