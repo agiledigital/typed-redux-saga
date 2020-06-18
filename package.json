@@ -6,9 +6,6 @@
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "engines": {
-    "node": ">=10.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/agiledigital/typed-redux-saga.git"
