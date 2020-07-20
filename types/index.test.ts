@@ -1,4 +1,4 @@
-import { SagaIterator, channel } from "redux-saga";
+import { SagaIterator, channel, buffers } from "redux-saga";
 import * as Effects from "typed-redux-saga";
 
 function* mySaga(): Effects.SagaGenerator<void> {
@@ -83,6 +83,12 @@ function* mySaga(): Effects.SagaGenerator<void> {
 
   // $ExpectType Channel<ActionPattern<Action<any>>>
   yield* Effects.actionChannel("FOO");
+
+  // $ExpectType Channel<ActionPattern<FooAction>>
+  yield* Effects.actionChannel<FooAction>("FOO");
+
+  // $ExpectType Channel<ActionPattern<FooAction>>
+  yield* Effects.actionChannel<FooAction>("FOO", buffers.sliding<FooAction>(5));
 
   // $ExpectType "FOO"[]
   yield* Effects.flush(chan);

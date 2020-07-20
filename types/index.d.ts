@@ -359,6 +359,10 @@ export function select<Fn extends (state: any, ...args: any[]) => any>(
   ...args: Tail<Parameters<Fn>>
 ): SagaGenerator<ReturnType<Fn>, SelectEffect>;
 
+export function actionChannel<A extends Action>(
+  pattern: ActionPattern<A>,
+  buffer?: Buffer<A>,
+): SagaGenerator<Channel<ActionPattern<A>>, ActionChannelEffect>;
 export function actionChannel(
   pattern: ActionPattern,
   buffer?: Buffer<Action>,
