@@ -362,11 +362,11 @@ export function select<Fn extends (state: any, ...args: any[]) => any>(
 export function actionChannel<A extends Action>(
   pattern: ActionPattern<A>,
   buffer?: Buffer<A>,
-): SagaGenerator<Channel<ActionPattern<A>>, ActionChannelEffect>;
+): SagaGenerator<Channel<A>, ActionChannelEffect>;
 export function actionChannel(
   pattern: ActionPattern,
   buffer?: Buffer<Action>,
-): SagaGenerator<Channel<ActionPattern>, ActionChannelEffect>;
+): SagaGenerator<Channel<Action>, ActionChannelEffect>;
 
 export function flush<T>(
   channel: FlushableChannel<T>,

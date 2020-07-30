@@ -81,14 +81,16 @@ function* mySaga(): Effects.SagaGenerator<void> {
   // $ExpectType number
   yield* Effects.select((state: { foo: number }): number => state.foo);
 
-  // $ExpectType Channel<ActionPattern<Action<any>>>
+  // $ExpectType Channel<Action<any>>
   yield* Effects.actionChannel("FOO");
 
-  // $ExpectType Channel<ActionPattern<FooAction>>
+  // $ExpectType Channel<FooAction>
   yield* Effects.actionChannel<FooAction>("FOO");
 
-  // $ExpectType Channel<ActionPattern<FooAction>>
-  yield* Effects.actionChannel<FooAction>("FOO", buffers.sliding<FooAction>(5));
+  // $ExpectType Channel<FooAction>
+  const fooChan = yield* Effects.actionChannel<FooAction>("FOO", buffers.sliding<FooAction>(5));
+  // $ExpectType FooAction
+  yield* Effects.take(fooChan);
 
   // $ExpectType "FOO"[]
   yield* Effects.flush(chan);
