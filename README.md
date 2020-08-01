@@ -72,6 +72,15 @@ function* fetchConfig() {}
 }
 ```
 
-Credits
+## Credits
 
 Thanks to all the [contributors](https://github.com/agiledigital/typed-redux-saga/graphs/contributors) and especially thanks to [@gilbsgilbs](https://github.com/gilbsgilbs) for his huge contribution.
+
+## See Also
+
+* https://github.com/danielnixon/eslint-plugin-total-functions
+* https://github.com/danielnixon/readonly-types
+* https://github.com/danielnixon/total-functions
+* https://github.com/jonaskello/eslint-plugin-functional
+* https://github.com/gcanti/fp-ts
+* https://github.com/plantain-00/type-coverage
