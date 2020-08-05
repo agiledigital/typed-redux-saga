@@ -45,6 +45,22 @@ function* mySaga(): Effects.SagaGenerator<void> {
     return 22;
   });
 
+  function someApiCall(): number {
+    return 1;
+  }
+
+  function someSelect(): number {
+    return 1;
+  }
+
+  function* doStuff() {
+    // $ExpectType number
+    yield* Effects.call(someApiCall);
+
+    // $ExpectType number
+    yield* Effects.select(someSelect);
+  }
+
   const person = {
     firstName: "John",
     lastName: "Doe",
