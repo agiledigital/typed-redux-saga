@@ -26,7 +26,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "copyfiles": "^2.3.0",
-    "dtslint": "^3.6.14",
+    "dtslint": "^3.7.0",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
