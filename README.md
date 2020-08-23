@@ -3,6 +3,10 @@
 [![npm](https://img.shields.io/npm/v/typed-redux-saga.svg)](https://www.npmjs.com/package/typed-redux-saga)
 [![Build Status](https://travis-ci.org/agiledigital/typed-redux-saga.svg?branch=master)](https://travis-ci.org/agiledigital/typed-redux-saga)
 
+[![dependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/status.svg)](https://david-dm.org/agiledigital/typed-redux-saga)
+[![devDependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/dev-status.svg)](https://david-dm.org/agiledigital/typed-redux-saga?type=dev)
+[![peerDependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/peer-status.svg)](https://david-dm.org/agiledigital/typed-redux-saga?type=peer)
+
 An attempt to bring better TypeScript typing to redux-saga.
 
 Requires TypeScript 3.6 or later.
