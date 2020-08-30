@@ -82,6 +82,7 @@ Thanks to all the [contributors](https://github.com/agiledigital/typed-redux-sag
 
 ## See Also
 
+* https://github.com/danielnixon/eslint-config-typed-fp
 * https://github.com/danielnixon/eslint-plugin-total-functions
 * https://github.com/danielnixon/readonly-types
 * https://github.com/danielnixon/total-functions
