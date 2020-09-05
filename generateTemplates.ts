@@ -7,9 +7,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
-const path = require("path");
-const fs = require("fs-extra");
-const nunjucks = require("nunjucks");
+import path from "path";
+import fs from "fs-extra";
+import nunjucks from "nunjucks";
 
 const OUTPUT_PATH = "./src";
 const TEMPLATES_PATH = "./templates";
@@ -28,9 +28,9 @@ for (const templatePath of templatePaths) {
     path.join(TEMPLATES_PATH, templatePath),
     "utf-8",
   );
-  env.renderString(res);
+  env.renderString(res, {});
   fs.writeFileSync(
     path.join(OUTPUT_PATH, templatePath.slice(0, -4)),
-    env.renderString(res),
+    env.renderString(res, {}),
   );
 }

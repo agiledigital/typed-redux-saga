@@ -20,11 +20,13 @@
   "peerDependencies": {
     "redux-saga": "^1.1.3"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@types/fs-extra": "^9.0.1",
+    "@types/node": "^14.6.4",
+    "@types/nunjucks": "^3.1.3",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "copyfiles": "^2.3.0",
@@ -41,12 +43,13 @@
     "redux-saga": "^1.1.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.26.10",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
   "scripts": {
-    "generate:templates": "node generateTemplates.js",
+    "generate:templates": "ts-node generateTemplates.ts",
     "lint": "${npm_execpath} run lint:eslint && ${npm_execpath} run lint:dts",
-    "lint:eslint": "eslint --ext=.js,.ts src types rollup.config.js generateTemplates.js",
+    "lint:eslint": "eslint --ext=.js,.ts src types *.js *.ts",
     "lint:fix": "${npm_execpath} run eslint --fix",
     "lint:dts": "dtslint types",
     "build": "${npm_execpath} run build:clean && ${npm_execpath} run build:dts && ${npm_execpath} run build:js",

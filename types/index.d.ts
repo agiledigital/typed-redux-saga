@@ -274,9 +274,9 @@ export function cps<Ctx, Fn extends (this: Ctx, ...args: any[]) => void>(
 
 // FIXME This should be done upstream.
 // eslint-disable-next-line functional/prefer-type-literal, @typescript-eslint/consistent-type-definitions
-interface FixedTask<T> extends Task {
-  result: <T>() => T | undefined;
-  toPromise: <T>() => Promise<T>;
+interface FixedTask<A> extends Task {
+  result: <T = A>() => T | undefined;
+  toPromise: <T = A>() => Promise<T>;
 }
 export function fork<Fn extends (...args: any[]) => any>(
   fn: Fn,
