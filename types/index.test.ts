@@ -9,6 +9,7 @@
 // FIXME we don't need to disable these locally but the CI job is failing...
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { SagaIterator, channel, buffers } from "redux-saga";
 // eslint-disable-next-line import/no-unresolved
