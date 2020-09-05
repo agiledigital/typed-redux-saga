@@ -58,5 +58,8 @@
     "build:dts": "copyfiles -u 1 types/**/*.d.ts dist/",
     "build:js": "rollup -c",
     "release": "${npm_execpath} run lint && ${npm_execpath} run build && ${npm_execpath} publish"
+  },
+  "typeCoverage": {
+    "atLeast": 93.57
   }
 }
