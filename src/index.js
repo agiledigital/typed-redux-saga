@@ -1,5 +1,9 @@
 /* This file is generated. Do not edit it. */
 
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable functional/functional-parameters */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+
 import {
   take as rawTake,
   takeMaybe as rawTakeMaybe,

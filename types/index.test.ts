@@ -1,9 +1,19 @@
+/* eslint-disable functional/prefer-readonly-type */
+/* eslint-disable functional/no-let */
+/* eslint-disable functional/no-this-expression */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/functional-parameters */
+
 import { SagaIterator, channel, buffers } from "redux-saga";
+// eslint-disable-next-line import/no-unresolved
 import * as Effects from "typed-redux-saga";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.take("FOO"); // $ExpectType Action<any>
-  type FooAction = {type: "FOO"};
+  type FooAction = { type: "FOO" };
   yield* Effects.take<FooAction>("FOO"); // $ExpectType FooAction
   yield* Effects.takeMaybe("FOO"); // $ExpectType Action<any>
   yield* Effects.takeMaybe<FooAction>("FOO"); // $ExpectType FooAction
@@ -12,14 +22,14 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.take(chan); // $ExpectType "FOO"
   yield* Effects.takeMaybe(chan); // $ExpectType "FOO"
 
-  yield* Effects.takeEvery("FOO", function*() {}); // $ExpectType never
-  yield* Effects.takeEvery(chan, function*() {}); // $ExpectType never
+  yield* Effects.takeEvery("FOO", function* () {}); // $ExpectType never
+  yield* Effects.takeEvery(chan, function* () {}); // $ExpectType never
 
-  yield* Effects.takeLatest("FOO", function*() {}); // $ExpectType never
-  yield* Effects.takeLatest(chan, function*() {}); // $ExpectType never
+  yield* Effects.takeLatest("FOO", function* () {}); // $ExpectType never
+  yield* Effects.takeLatest(chan, function* () {}); // $ExpectType never
 
-  yield* Effects.takeLeading("FOO", function*() {}); // $ExpectType never
-  yield* Effects.takeLeading(chan, function*() {}); // $ExpectType never
+  yield* Effects.takeLeading("FOO", function* () {}); // $ExpectType never
+  yield* Effects.takeLeading(chan, function* () {}); // $ExpectType never
 
   yield* Effects.put({ type: "FOO" }); // $ExpectType { type: string; }
   yield* Effects.put(chan, "FOO"); // $ExpectType "FOO"
@@ -27,7 +37,7 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.putResolve({ type: "FOO" }); // $ExpectType { type: string; }
 
   // $ExpectType number
-  yield* Effects.call(function(): number {
+  yield* Effects.call(function (): number {
     return 22;
   });
 
@@ -35,12 +45,12 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.call(() => 22);
 
   // $ExpectType number
-  yield* Effects.call(function(): Promise<number> {
+  yield* Effects.call(function (): Promise<number> {
     return Promise.resolve(22);
   });
 
   // $ExpectType number
-  yield* Effects.call(function*(): SagaIterator<number> {
+  yield* Effects.call(function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
@@ -53,6 +63,7 @@ function* mySaga(): Effects.SagaGenerator<void> {
     return 1;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function* doStuff() {
     // $ExpectType number
     yield* Effects.call(someApiCall);
@@ -77,13 +88,13 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.cps((): number => 22);
 
   // $ExpectType FixedTask<number>
-  let task = yield* Effects.fork(function*(): SagaIterator<number> {
+  let task = yield* Effects.fork(function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType FixedTask<number>
-  task = yield* Effects.spawn(function*(): SagaIterator<number> {
+  task = yield* Effects.spawn(function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
@@ -104,7 +115,10 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.actionChannel<FooAction>("FOO");
 
   // $ExpectType Channel<FooAction>
-  const fooChan = yield* Effects.actionChannel<FooAction>("FOO", buffers.sliding<FooAction>(5));
+  const fooChan = yield* Effects.actionChannel<FooAction>(
+    "FOO",
+    buffers.sliding<FooAction>(5),
+  );
   // $ExpectType FooAction
   yield* Effects.take(fooChan);
 
@@ -127,30 +141,30 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.delay(120, true);
 
   // $ExpectType never
-  yield* Effects.throttle(25, "FOO", function*(): SagaIterator<number> {
+  yield* Effects.throttle(25, "FOO", function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType never
-  yield* Effects.debounce(25, "FOO", function*(): SagaIterator<number> {
+  yield* Effects.debounce(25, "FOO", function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType number
-  yield* Effects.retry(5, 100, function*(): SagaIterator<number> {
+  yield* Effects.retry(5, 100, function* (): SagaIterator<number> {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType number[]
   yield* Effects.all([
-    Effects.call(function*(): Effects.SagaGenerator<number> {
+    Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
-    Effects.call(function*(): Effects.SagaGenerator<number> {
+    Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
@@ -158,11 +172,11 @@ function* mySaga(): Effects.SagaGenerator<void> {
 
   // $ExpectType { foo: number; bar: string; }
   yield* Effects.all({
-    foo: Effects.call(function*(): Effects.SagaGenerator<number> {
+    foo: Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
-    bar: Effects.call(function*(): Effects.SagaGenerator<string> {
+    bar: Effects.call(function* (): Effects.SagaGenerator<string> {
       yield* Effects.take(chan);
       return "hello";
     }),
@@ -170,11 +184,11 @@ function* mySaga(): Effects.SagaGenerator<void> {
 
   // $ExpectType (number | undefined)[]
   yield* Effects.race([
-    Effects.call(function*(): Effects.SagaGenerator<number> {
+    Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
-    Effects.call(function*(): Effects.SagaGenerator<number> {
+    Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
@@ -182,11 +196,11 @@ function* mySaga(): Effects.SagaGenerator<void> {
 
   // $ExpectType { foo: number | undefined; bar: string | undefined; }
   yield* Effects.race({
-    foo: Effects.call(function*(): Effects.SagaGenerator<number> {
+    foo: Effects.call(function* (): Effects.SagaGenerator<number> {
       yield* Effects.take(chan);
       return 22;
     }),
-    bar: Effects.call(function*(): Effects.SagaGenerator<string> {
+    bar: Effects.call(function* (): Effects.SagaGenerator<string> {
       yield* Effects.take(chan);
       return "hello";
     }),

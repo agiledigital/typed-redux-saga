@@ -4,16 +4,23 @@ env:
   es6: true
   jest: true
 plugins:
+  - '@typescript-eslint'
+  - 'functional'
+  - 'total-functions'
   - 'prettier'
   - import
 extends:
   - 'eslint:recommended'
+  - 'typed-fp'
+  - 'prettier/@typescript-eslint'
   - 'plugin:prettier/recommended'
   - 'plugin:import/errors'
   - 'plugin:import/warnings'
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
+  project: './tsconfig.json'
 rules:
   'import/order':
     - error

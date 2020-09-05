@@ -1,5 +1,9 @@
+/* eslint-disable functional/prefer-readonly-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable functional/no-return-void */
 // Minimum TypeScript Version: 3.6
 
+// eslint-disable-next-line import/no-unresolved
 import { ActionMatchingPattern, Buffer } from "@redux-saga/types";
 import { Action } from "redux";
 import {
@@ -39,7 +43,10 @@ import {
   CallEffectDescriptor,
 } from "redux-saga/effects";
 
-export type SagaGenerator<RT, E extends Effect = Effect<any, any>> = Generator<E, RT>;
+export type SagaGenerator<RT, E extends Effect = Effect<any, any>> = Generator<
+  E,
+  RT
+>;
 
 export function take<A extends Action>(
   pattern?: ActionPattern<A>,
@@ -48,10 +55,8 @@ export function take<T>(
   channel: TakeableChannel<T>,
   multicastPattern?: Pattern<T>,
 ): SagaGenerator<T, ChannelTakeEffect<T>>;
-export function take(
-  pattern?: ActionPattern,
-): SagaGenerator<any, TakeEffect>;
-                          
+export function take(pattern?: ActionPattern): SagaGenerator<any, TakeEffect>;
+
 export function takeMaybe<A extends Action>(
   pattern?: ActionPattern<A>,
 ): SagaGenerator<A, TakeEffect>;
@@ -182,7 +187,9 @@ export function call<Fn extends (...args: any[]) => any>(
   ...args: Parameters<Fn>
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
 export function call<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: [Ctx, Name],
@@ -192,7 +199,9 @@ export function call<
   CallEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function call<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
@@ -211,7 +220,9 @@ export function call<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
 
 export function apply<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctx: Ctx,
@@ -235,14 +246,18 @@ export function cps<Fn extends (...args: any[]) => any>(
   ...args: CpsFunctionParameters<Fn>
 ): SagaGenerator<ReturnType<Fn>, CpsEffect<ReturnType<Fn>>>;
 export function cps<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => void },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => void;
+  },
   Name extends string
 >(
   ctxAndFnName: [Ctx, Name],
   ...args: CpsFunctionParameters<Ctx[Name]>
 ): SagaGenerator<ReturnType<Ctx[Name]>, CpsEffect<ReturnType<Ctx[Name]>>>;
 export function cps<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => void },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => void;
+  },
   Name extends string
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
@@ -258,6 +273,7 @@ export function cps<Ctx, Fn extends (this: Ctx, ...args: any[]) => void>(
 ): SagaGenerator<ReturnType<Fn>, CpsEffect<ReturnType<Fn>>>;
 
 // FIXME This should be done upstream.
+// eslint-disable-next-line functional/prefer-type-literal, @typescript-eslint/consistent-type-definitions
 interface FixedTask<T> extends Task {
   result: <T>() => T | undefined;
   toPromise: <T>() => Promise<T>;
@@ -270,7 +286,9 @@ export function fork<Fn extends (...args: any[]) => any>(
   ForkEffect<SagaReturnType<Fn>>
 >;
 export function fork<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: [Ctx, Name],
@@ -280,7 +298,9 @@ export function fork<
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function fork<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
@@ -312,7 +332,9 @@ export function spawn<Fn extends (...args: any[]) => any>(
   ForkEffect<SagaReturnType<Fn>>
 >;
 export function spawn<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: [Ctx, Name],
@@ -322,7 +344,9 @@ export function spawn<
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function spawn<
-  Ctx extends { [P in Name]: (this: Ctx, ...args: any[]) => any },
+  Ctx extends {
+    [P in Name]: (this: Ctx, ...args: any[]) => any;
+  },
   Name extends string
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
@@ -374,6 +398,7 @@ export function flush<T>(
 
 export function cancelled(): SagaGenerator<boolean, CancelledEffect>;
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function setContext<C extends object>(
   props: C,
 ): SagaGenerator<void, SetContextEffect<C>>;
@@ -472,12 +497,12 @@ export function retry<Fn extends (...args: any[]) => any>(
 type EffectReturnType<T> = T extends SagaGenerator<infer RT, any>
   ? RT
   : T extends CallEffect
-    ? T["payload"] extends CallEffectDescriptor<infer RT>
-      ? RT
-      : never
-    : T extends TakeEffect
-    ? ActionPattern
-    : unknown;
+  ? T["payload"] extends CallEffectDescriptor<infer RT>
+    ? RT
+    : never
+  : T extends TakeEffect
+  ? ActionPattern
+  : unknown;
 
 export function all<T>(
   effects: T[],

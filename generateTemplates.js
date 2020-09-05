@@ -1,3 +1,12 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-loop-statement */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 const path = require("path");
 const fs = require("fs-extra");
 const nunjucks = require("nunjucks");

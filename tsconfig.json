@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noEmit": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "types": [],
+    "lib": ["es6"],
+    "baseUrl": ".",
+      "paths": { "typed-redux-saga": ["."] }
+    },
+  "include": ["types/*", "src/*", "rollup.config.js", "generateTemplates.js"]
+}
