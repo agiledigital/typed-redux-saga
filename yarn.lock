@@ -1971,10 +1971,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-typed-fp@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-0.4.0.tgz#e13b849b702fe8104f4e1d6d8571bd0cdea59e04"
-  integrity sha512-0EFOlWG7HkcDNmCT61T6t+BMlinw3kQlH/ta+1j7TnCeN+id3id7P1FY6Y9FG3QbEuHfpPAooWLMC0O9sXwr5g==
+eslint-config-typed-fp@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-0.6.0.tgz#344dd3972ff8ccdbca1094b443138501feeaac11"
+  integrity sha512-yf8TKikcCXsJTW24OxdshQ5BPsL/PhwsU2HBP9s1cUMGJl1U+mk0lj1vJBgTA8+nv3ox3+ZWSpbMrLkIatEJyQ==
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -2029,10 +2029,10 @@ eslint-plugin-prettier@^3.1.4:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-total-functions@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-total-functions/-/eslint-plugin-total-functions-3.0.0.tgz#504becb2f29c0f0625c8d5bfde0c4e01e0ac66f3"
-  integrity sha512-rc/QrArdwLtf46dlbIvt+iisDSd6d+p0dSsCHyCrmPujKodP8+12Jx7e2/fdHGXkBlLvWxOej0evaovhzRXOKA==
+eslint-plugin-total-functions@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-total-functions/-/eslint-plugin-total-functions-3.1.0.tgz#194cd0927791c5737b4831470ebbc6a99a14e86f"
+  integrity sha512-70GQ3kh3lybwFr9+HFGQxdOZYYA9Ha6rjxUkF8hZXIVcX71a5m4gm3gZC8CFZnXPP3ZJWMAs2g04GRgu7fDFPA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.0.1"
     "@typescript-eslint/experimental-utils" "^4.0.1"
