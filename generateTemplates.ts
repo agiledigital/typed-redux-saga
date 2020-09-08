@@ -12,7 +12,7 @@ const env = new nunjucks.Environment(new nunjucks.FileSystemLoader("."), {
   autoescape: false,
 });
 
-const templatePaths = fs
+const templatePaths: readonly string[] = fs
   .readdirSync(TEMPLATES_PATH)
   .filter((s) => s.endsWith(".njk"));
 
