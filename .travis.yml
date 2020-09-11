@@ -3,5 +3,6 @@ install:
   - yarn install --frozen-lockfile
 script:
   - yarn run lint
+  - yarn run type-coverage
   - yarn run build
   
