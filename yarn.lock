@@ -2033,10 +2033,10 @@ eslint-plugin-prettier@^3.1.4:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-total-functions@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-total-functions/-/eslint-plugin-total-functions-4.1.0.tgz#6984c757f104a2d2989e92551f72a7cdc6dccacf"
-  integrity sha512-AFRK3RwVWrP7ZYqYy4fs5C5qRNFji/01mO3mDEejac/VDWIvaFE7G67rDBrm0cBV1SYWAd42KegRuf7RTebvcw==
+eslint-plugin-total-functions@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-total-functions/-/eslint-plugin-total-functions-4.1.1.tgz#40317990b0095884b3909dffdaf47494a6e320d2"
+  integrity sha512-kQNNxyQcUVR5tpMXdmjlKBan9TaGqyesD7U/l7UZcpmwrfdk6lgQjiBdLRROD/jiotmOPEd8D9XJABg6s9pBdQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/experimental-utils" "^4.1.1"
