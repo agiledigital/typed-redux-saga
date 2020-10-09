@@ -1997,10 +1997,10 @@ eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-functional@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-3.0.2.tgz#f4d3b18a063c912ba96d3ade6eb8f0a14a989264"
-  integrity sha512-miOugVKh+Yvu9h4a3M6yPxrbK4orVghD6Uyd3y62Rv0vz+gPqrI4p7UY7CUa3rA9GKwwgJW02tLPQBYsbytqug==
+eslint-plugin-functional@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-3.1.0.tgz#5c2c69456e9fa4d1289c8bb526505a202785c2eb"
+  integrity sha512-HJXQRfIohpA/tk4TjMXFf1qVXF4WLiuzpzwU6xtavSwx0M+ULxfTcICb2Jvf3qSbWF0S1tzNKfXCCVqP+qPE5g==
   dependencies:
     "@typescript-eslint/experimental-utils" "^3.9.1"
     array.prototype.flatmap "^1.2.3"
