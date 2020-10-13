@@ -6,4 +6,3 @@ script:
   - yarn run type-coverage
   - yarn run test
   - yarn run build
-  

@@ -1,3 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable functional/no-loop-statement */
+/* eslint-disable functional/immutable-data */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-conditional-statement */
+
 import { addNamed } from "@babel/helper-module-imports";
 import { createMacro } from "babel-plugin-macros";
 

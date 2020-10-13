@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`macros all and race: all and race 1`] = `
+exports[`unknown plugin all and race: all and race 1`] = `
 
 import {all, call, race} from '../src/macro'
 
@@ -24,18 +24,18 @@ import { all as _all } from "redux-saga/effects";
 function* myEffect() {
   const resAll = yield _all({
     one: _call(() => "ok"),
-    two: _call(() => "ok")
+    two: _call(() => "ok"),
   });
   const resRace = yield _race({
     one: _call(() => "ok"),
-    two: _call(() => "ok")
+    two: _call(() => "ok"),
   });
 }
 
 
 `;
 
-exports[`macros named imports: named imports 1`] = `
+exports[`unknown plugin named imports: named imports 1`] = `
 
 import {call, take} from '../src/macro'
 
