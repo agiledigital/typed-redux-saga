@@ -74,7 +74,7 @@
     "release": "${npm_execpath} run lint && ${npm_execpath} run test && ${npm_execpath} run build && ${npm_execpath} publish"
   },
   "typeCoverage": {
-    "atLeast": 93.57,
+    "atLeast": 91.93,
     "strict": true,
     "detail": true
   },
