@@ -43,7 +43,7 @@
     "prettier": "^2.1.2",
     "redux-saga": "^1.1.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.29.0",
+    "rollup": "^2.30.0",
     "ts-node": "^9.0.0",
     "type-coverage": "^2.13.3",
     "typescript": "^4.1.0-beta"
