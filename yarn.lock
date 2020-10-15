@@ -4387,10 +4387,10 @@ typescript-tuple@^2.2.1:
   dependencies:
     typescript-compare "^0.0.2"
 
-typescript@^4.1.0-beta:
-  version "4.1.0-beta"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-beta.tgz#e4d054035d253b7a37bdc077dd71706508573e69"
-  integrity sha512-b/LAttdVl3G6FEmnMkDsK0xvfvaftXpSKrjXn+OVCRqrwz5WD/6QJOiN+dTorqDY+hkaH+r2gP5wI1jBDmdQ7A==
+typescript@^4.1.0-dev.20201015:
+  version "4.1.0-dev.20201015"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-dev.20201015.tgz#f6b1d17e95b283a367f0897440120a0cdcc26dbb"
+  integrity sha512-HxuxG+/jnKqvcMfn3UU/XLmMPuGY9CToCWVDidksDpm2XIB4ySjBH6bduGPpgR8/BkaQoSv8cycFy7Ql9t9SXA==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
