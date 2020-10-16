@@ -6036,10 +6036,10 @@ typescript-tuple@^2.2.1:
   dependencies:
     typescript-compare "^0.0.2"
 
-typescript@^4.1.0-beta:
-  version "4.1.0-beta"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-beta.tgz#e4d054035d253b7a37bdc077dd71706508573e69"
-  integrity sha512-b/LAttdVl3G6FEmnMkDsK0xvfvaftXpSKrjXn+OVCRqrwz5WD/6QJOiN+dTorqDY+hkaH+r2gP5wI1jBDmdQ7A==
+typescript@^4.1.0-dev.20201016:
+  version "4.1.0-dev.20201016"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.0-dev.20201016.tgz#14128e5cb67004742ba7d871f21cfb753516df95"
+  integrity sha512-DsJnEMvsL7+zHdpUOZQu3s/J0P3IwaFxSe1dhalwAZoH+btc75kpMjLXXzANdjkU5s5hjL2t+JmvkgpsYpF1rQ==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
