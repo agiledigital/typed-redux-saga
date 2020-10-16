@@ -77,6 +77,42 @@ function* fetchConfig() {}
 }
 ```
 
+## Babel Macro
+
+You can use the built-in [babel macro](
+https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/user.md)
+that will take care of transforming all your effects to raw redux-saga effects.
+
+Install the babel macros plugin:
+
+```sh
+yarn add --dev babel-plugin-macros
+```
+
+Modify your import names to use the macro:
+
+```js
+import {call, race} from "typed-redux-saga/macro";
+
+// And use the library normally
+function* myEffect() {
+  yield* call(() => "foo");
+}
+```
+
+The previous code will be transpiled at compile time to raw redux-saga effects:
+
+```js
+import {call, race} from "redux-saga/effects";
+
+function* myEffect() {
+  yield call(() => 'foo');
+}
+```
+
+This gives you all the benefits of strong types during development without
+the overhead induced by all the calls to `typed-redux-saga`'s proxies.
+
 ## Credits
 
 Thanks to all the [contributors](https://github.com/agiledigital/typed-redux-saga/graphs/contributors) and especially thanks to [@gilbsgilbs](https://github.com/gilbsgilbs) for his huge contribution.

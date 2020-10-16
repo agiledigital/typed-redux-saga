@@ -4,5 +4,5 @@ install:
 script:
   - yarn run lint
   - yarn run type-coverage
+  - yarn run test
   - yarn run build
-  

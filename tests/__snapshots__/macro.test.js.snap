@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unknown plugin all and race: all and race 1`] = `
+
+import {all, call, race} from '../src/macro'
+
+function* myEffect() {
+  const resAll = yield* all({
+    one: call(() => 'ok'),
+    two: call(() => 'ok'),
+  });
+  const resRace = yield* race({
+    one: call(() => 'ok'),
+    two: call(() => 'ok'),
+  });
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { race as _race } from "redux-saga/effects";
+import { call as _call } from "redux-saga/effects";
+import { all as _all } from "redux-saga/effects";
+
+function* myEffect() {
+  const resAll = yield _all({
+    one: _call(() => "ok"),
+    two: _call(() => "ok"),
+  });
+  const resRace = yield _race({
+    one: _call(() => "ok"),
+    two: _call(() => "ok"),
+  });
+}
+
+
+`;
+
+exports[`unknown plugin named imports: named imports 1`] = `
+
+import {call, take} from '../src/macro'
+
+function* myEffect() {
+  const foo = yield* take('SOME_ACTION');
+  const bar = yield* call(() => 'hello');
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import { take as _take } from "redux-saga/effects";
+import { call as _call } from "redux-saga/effects";
+
+function* myEffect() {
+  const foo = yield _take("SOME_ACTION");
+  const bar = yield _call(() => "hello");
+}
+
+
+`;
