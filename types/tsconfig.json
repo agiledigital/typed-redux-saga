@@ -13,7 +13,8 @@
     "baseUrl": ".",
     "paths": {
       "typed-redux-saga": ["."],
-      "typed-redux-saga/macro": ["./macro"]
+      "typed-redux-saga/macro": ["./macro"],
+      "typed-redux-saga/effects-for-action-type": ["./effects-for-action-type"]
     }
   }
 }
