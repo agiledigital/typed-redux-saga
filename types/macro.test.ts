@@ -5,12 +5,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 
-import { SagaIterator } from "redux-saga";
 import * as Effects from "typed-redux-saga/macro";
 
 function* mySaga(): Effects.SagaGenerator<void> {
   // $ExpectType number
-  yield* Effects.call(function* (): SagaIterator<number> {
+  yield* Effects.call(function* (): Effects.SagaGenerator<number> {
     yield* Effects.take("OK");
     return 22;
   });

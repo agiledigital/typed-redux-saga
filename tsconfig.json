@@ -14,5 +14,5 @@
     "baseUrl": ".",
       "paths": { "typed-redux-saga": ["."] }
     },
-  "include": ["types/*", "src/*", "rollup.config.js", "generateTemplates.ts"]
+  "include": ["types/*", "src/*", "typings/*", "rollup.config.js", "generateTemplates.ts"]
 }

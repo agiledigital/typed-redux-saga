@@ -6,12 +6,7 @@
 /* eslint-disable functional/no-expression-statement */
 /* eslint-disable functional/functional-parameters */
 
-// FIXME we don't need to disable these locally but the CI job is failing...
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
-import { SagaIterator, channel, buffers } from "redux-saga";
+import { channel, buffers } from "redux-saga";
 // eslint-disable-next-line import/no-unresolved
 import * as Effects from "typed-redux-saga";
 
@@ -55,7 +50,7 @@ function* mySaga(): Effects.SagaGenerator<void> {
   });
 
   // $ExpectType number
-  yield* Effects.call(function* (): SagaIterator<number> {
+  yield* Effects.call(function* (): Effects.SagaGenerator<number> {
     yield* Effects.take(chan);
     return 22;
   });
@@ -93,13 +88,13 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.cps((): number => 22);
 
   // $ExpectType FixedTask<number>
-  let task = yield* Effects.fork(function* (): SagaIterator<number> {
+  let task = yield* Effects.fork(function* (): Effects.SagaGenerator<number> {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType FixedTask<number>
-  task = yield* Effects.spawn(function* (): SagaIterator<number> {
+  task = yield* Effects.spawn(function* (): Effects.SagaGenerator<number> {
     yield* Effects.take(chan);
     return 22;
   });
@@ -146,19 +141,23 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.delay(120, true);
 
   // $ExpectType never
-  yield* Effects.throttle(25, "FOO", function* (): SagaIterator<number> {
+  yield* Effects.throttle(25, "FOO", function* (): Effects.SagaGenerator<
+    number
+  > {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType never
-  yield* Effects.debounce(25, "FOO", function* (): SagaIterator<number> {
+  yield* Effects.debounce(25, "FOO", function* (): Effects.SagaGenerator<
+    number
+  > {
     yield* Effects.take(chan);
     return 22;
   });
 
   // $ExpectType number
-  yield* Effects.retry(5, 100, function* (): SagaIterator<number> {
+  yield* Effects.retry(5, 100, function* (): Effects.SagaGenerator<number> {
     yield* Effects.take(chan);
     return 22;
   });
