@@ -10,10 +10,12 @@ export default {
     {
       dir: "dist/cjs/",
       format: "cjs",
+      exports: "auto",
     },
     {
       dir: "dist/es/",
       format: "es",
+      exports: "auto",
     },
   ],
   external: [
