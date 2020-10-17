@@ -5023,10 +5023,10 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-redux-saga-test-plan@^4.0.0-rc.3:
-  version "4.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/redux-saga-test-plan/-/redux-saga-test-plan-4.0.0-rc.3.tgz#bde05527202be652859e68d15cdabe79ffa7509a"
-  integrity sha512-18Ha1AWmP4Xt64cSyJv2j7sH8lwQzdk/LByiyhoNyuqyhzkQzlKlflHr3LqiSCzn3e2AgFxagynto8XGRqsHcg==
+redux-saga-test-plan@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/redux-saga-test-plan/-/redux-saga-test-plan-4.0.0.tgz#e2549049338d4c5739fcd01512dfe43519d65cd9"
+  integrity sha512-8lNyjdehaRnhoKTV7HRtdPmVGxtOdhnWWATIw9YyqZyzABobJWuy3R3zWSAlP4vZdUI6tXkCexR6KQzwPAyKdg==
   dependencies:
     core-js "^2.4.1"
     fsm-iterator "^1.1.0"
