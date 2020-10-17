@@ -6,7 +6,6 @@
 /* eslint-disable functional/functional-parameters */
 
 import { channel, buffers } from "redux-saga";
-// eslint-disable-next-line import/no-unresolved
 import * as Effects from "typed-redux-saga";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -1,7 +1,6 @@
 /* eslint-disable functional/functional-parameters */
 /* eslint-disable functional/no-expression-statement */
 
-// eslint-disable-next-line import/no-unresolved
 import * as Effects from "typed-redux-saga/macro";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

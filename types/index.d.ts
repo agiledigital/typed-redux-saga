@@ -1,8 +1,10 @@
+// Minimum TypeScript Version: 3.6
+
 /* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable functional/no-return-void */
-// Minimum TypeScript Version: 3.6
 
+// TODO remove this eslint-disable
 // eslint-disable-next-line import/no-unresolved
 import { ActionMatchingPattern, Buffer } from "@redux-saga/types";
 import { Action } from "redux";

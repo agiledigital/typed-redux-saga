@@ -3,6 +3,9 @@ env:
   node: true
   es6: true
   jest: true
+settings:
+  "import/resolver":
+    typescript: {}
 plugins:
   - '@typescript-eslint'
   - 'functional'
@@ -16,6 +19,7 @@ extends:
   - 'plugin:prettier/recommended'
   - 'plugin:import/errors'
   - 'plugin:import/warnings'
+  - 'plugin:import/typescript'
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: 2018
