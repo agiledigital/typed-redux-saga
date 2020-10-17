@@ -13,8 +13,8 @@
     "lib": ["es6"],
     "baseUrl": ".",
     "paths": {
-      "typed-redux-saga": ["."],
-      "typed-redux-saga/macro": ["./macro"]
+      "typed-redux-saga": ["./types"],
+      "typed-redux-saga/macro": ["./types/macro"]
     }
   },
   "include": ["types/*", "src/*", "typings/*", "rollup.config.js", "generateTemplates.ts"]
