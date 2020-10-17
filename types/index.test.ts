@@ -1,4 +1,3 @@
-/* eslint-disable functional/prefer-readonly-type */
 /* eslint-disable functional/no-let */
 /* eslint-disable functional/no-this-expression */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
@@ -13,7 +12,7 @@ import * as Effects from "typed-redux-saga";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.take("FOO"); // $ExpectType Action<any>
-  type FooAction = { type: "FOO" };
+  type FooAction = { readonly type: "FOO" };
   yield* Effects.take<FooAction>("FOO"); // $ExpectType FooAction
   yield* Effects.takeMaybe("FOO"); // $ExpectType Action<any>
   yield* Effects.takeMaybe<FooAction>("FOO"); // $ExpectType FooAction
@@ -106,7 +105,9 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.cancel(task);
 
   // $ExpectType number
-  yield* Effects.select((state: { foo: number }): number => state.foo);
+  yield* Effects.select(
+    (state: { readonly foo: number }): number => state.foo,
+  );
 
   // $ExpectType Channel<Action<any>>
   yield* Effects.actionChannel("FOO");
