@@ -10,9 +10,9 @@
     "types": [],
     "lib": ["es6"],
     "baseUrl": ".",
-      "paths": {
-        "typed-redux-saga": ["."],
-        "typed-redux-saga/macro": ["./macro"]
-      }
+    "paths": {
+      "typed-redux-saga": ["."],
+      "typed-redux-saga/macro": ["./macro"]
     }
+  }
 }

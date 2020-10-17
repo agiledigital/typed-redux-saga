@@ -1,0 +1,6 @@
+{
+  "name": "typed-redux-saga",
+  "main": "../dist/cjs/macro.js",
+  "module": "../dist/es/macro.js",
+  "types": "../dist"
+}
