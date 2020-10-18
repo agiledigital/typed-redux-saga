@@ -10,7 +10,7 @@
 import { addNamed } from "@babel/helper-module-imports";
 import { createMacro } from "babel-plugin-macros";
 
-function typedReduxSagaMacro({ references, babel, state }) {
+export default createMacro(({ references, babel, state }) => {
   const program = state.file.path;
 
   for (const refName of Object.keys(references)) {
@@ -32,6 +32,4 @@ function typedReduxSagaMacro({ references, babel, state }) {
       }
     }
   }
-}
-
-export default createMacro(typedReduxSagaMacro);
+});
