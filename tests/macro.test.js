@@ -1,6 +1,7 @@
 import plugin from "babel-plugin-macros";
 import pluginTester from "babel-plugin-tester";
 
+// eslint-disable-next-line functional/no-expression-statement
 pluginTester({
   plugin,
   snapshot: true,

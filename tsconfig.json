@@ -17,5 +17,5 @@
       "typed-redux-saga/macro": ["./types/macro"]
     }
   },
-  "include": ["types/*", "src/*", "typings/*", "rollup.config.js", "generateTemplates.ts"]
+  "include": ["types/*", "src/*", "typings/*", "tests/*", "rollup.config.js", "generateTemplates.ts"]
 }
