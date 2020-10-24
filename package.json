@@ -41,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "babel-plugin-tester": "^10.0.0",
+    "codecov": "^3.8.0",
     "copyfiles": "^2.4.0",
     "dtslint": "^4.0.4",
     "eslint": "^7.11.0",
@@ -82,10 +83,19 @@
   },
   "jest": {
     "testRegex": "./tests/.*.js$",
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
       "!src/index.js"
     ],
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./coverage/",
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

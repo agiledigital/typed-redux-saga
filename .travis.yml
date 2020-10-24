@@ -6,3 +6,6 @@ script:
   - yarn run type-coverage
   - yarn run test
   - yarn run build
+after_success:
+  - yarn run codecov
+  
