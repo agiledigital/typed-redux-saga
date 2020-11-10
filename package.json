@@ -27,7 +27,7 @@
     "redux-saga": "^1.1.3"
   },
   "optionalDependencies": {
-    "@babel/helper-module-imports": "^7.12.1",
+    "@babel/helper-module-imports": "^7.12.5",
     "babel-plugin-macros": "^2.8.0"
   },
   "devDependencies": {
