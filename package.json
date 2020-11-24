@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",
-    "@babel/core": "^7.12.7",
+    "@babel/core": "^7.12.8",
     "@babel/preset-env": "^7.12.7",
     "@types/babel-plugin-macros": "^2.8.4",
     "@types/fs-extra": "^9.0.4",
