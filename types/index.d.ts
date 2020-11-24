@@ -184,10 +184,16 @@ export function putResolve<A extends Action>(
   action: A,
 ): SagaGenerator<A, PutEffect<A>>;
 
-export function call<Fn extends (...args: any[]) => any>(
+export function call<
+  Fn extends (...args: any[]) => any,
+  Args extends OverloadParameters<Fn>
+>(
   fn: Fn,
-  ...args: Parameters<Fn>
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+  ...args: Args
+): SagaGenerator<
+  SagaReturnType<ExtractOverload<Fn, Args>>,
+  CallEffect<SagaReturnType<ExtractOverload<Fn, Args>>>
+>;
 export function call<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
@@ -525,3 +531,59 @@ export function race<T extends { [key: string]: any }>(
   { [K in keyof T]: EffectReturnType<T[K]> | undefined },
   RaceEffect<T[keyof T]>
 >;
+
+// helpers
+
+type Overloads<Fn extends (...args: any) => any> = Fn extends {
+  (...args: infer P1): infer R1;
+  (...args: infer P2): infer R2;
+  (...args: infer P3): infer R3;
+  (...args: infer P4): infer R4;
+  (...args: infer P5): infer R5;
+}
+  ? [
+      (...args: P1) => R1,
+      (...args: P2) => R2,
+      (...args: P3) => R3,
+      (...args: P4) => R4,
+      (...args: P5) => R5,
+    ]
+  : Fn extends {
+      (...args: infer P1): infer R1;
+      (...args: infer P2): infer R2;
+      (...args: infer P3): infer R3;
+      (...args: infer P4): infer R4;
+    }
+  ? [
+      (...args: P1) => R1,
+      (...args: P2) => R2,
+      (...args: P3) => R3,
+      (...args: P4) => R4,
+    ]
+  : Fn extends {
+      (...args: infer P1): infer R1;
+      (...args: infer P2): infer R2;
+      (...args: infer P3): infer R3;
+    }
+  ? [(...args: P1) => R1, (...args: P2) => R2, (...args: P3) => R3]
+  : Fn extends {
+      (...args: infer P1): infer R1;
+      (...args: infer P2): infer R2;
+    }
+  ? [(...args: P1) => R1, (...args: P2) => R2]
+  : [Fn];
+
+type OverloadParameters<Fn extends (...args: any) => any> = Parameters<
+  Overloads<Fn>[number]
+>;
+
+type ExtractOverload<
+  Fn extends (...args: any) => any,
+  Args extends any[]
+  // eslint-disable-next-line @typescript-eslint/ban-types
+> = Extract<Overloads<Fn>[number], (...args: Args) => any>;
+
+type OverloadReturnType<
+  Fn extends (...args: any) => any,
+  Args extends any[]
+> = ReturnType<ExtractOverload<Fn, Args>>;
