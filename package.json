@@ -50,7 +50,7 @@
     "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-plugin-functional": "^3.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-total-functions": "^4.7.2",
     "jest": "^26.6.3",
     "nunjucks": "^3.2.2",
