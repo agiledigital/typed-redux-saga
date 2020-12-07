@@ -44,7 +44,7 @@
     "codecov": "^3.8.1",
     "copyfiles": "^2.4.1",
     "dtslint": "^4.0.6",
-    "eslint": "^7.14.0",
+    "eslint": "^7.15.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-typed-fp": "^1.3.0",
     "eslint-import-resolver-typescript": "^2.3.0",
