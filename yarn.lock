@@ -5966,10 +5966,10 @@ tr46@^2.0.2:
   dependencies:
     punycode "^2.1.1"
 
-ts-lib-utils@^2.14.7:
-  version "2.14.7"
-  resolved "https://registry.yarnpkg.com/ts-lib-utils/-/ts-lib-utils-2.14.7.tgz#62a915eda10b8906bcd2ea46730dc34103002bd9"
-  integrity sha512-azZXCAUKxS2ukmdwJJTCp23dk6I4aAMkO529pySIgXp+orYEf094wW2Lfm6FaiZdChuGsYFpxIbhQb/ENPfltQ==
+ts-lib-utils@^2.14.8:
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/ts-lib-utils/-/ts-lib-utils-2.14.8.tgz#23c153cf846e41d1ec4d83823033ce2f5d9ab33b"
+  integrity sha512-Yy+3zvKVOdCPUVgPPRXig9BBygFdvDUggoq2JH/jlUu3GSuBWKWf3awDq76L6cMqOD1sUOzME2Zq2/Vy0l7xLQ==
   dependencies:
     glob "7"
     tslib "1 || 2"
@@ -6065,23 +6065,23 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-coverage-core@^2.14.7:
-  version "2.14.7"
-  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.14.7.tgz#446a8753181d46684a006492a8846c9894e894a9"
-  integrity sha512-T7hABGImC+wMEcmcNo/5WGRbUoyCmmOLt89ZmEkeNz0ln8PJsduBeXmtdsY9piTzr8oLn57XbCszITpkcK6tSQ==
+type-coverage-core@^2.14.8:
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.14.8.tgz#1b83895e824745a5034936475d096557ba75f55b"
+  integrity sha512-onwZZbZKLXV6MKrID/Y6cdqUDQYyoxn4P5tEO5YkD3iyuQlTf3uRppcd6TszTsXI6vOExlHtVLOBbKmqFSPZfA==
   dependencies:
     minimatch "3"
-    ts-lib-utils "^2.14.7"
+    ts-lib-utils "^2.14.8"
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.14.7:
-  version "2.14.7"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.14.7.tgz#da6ecbeef8f79744e5d94e115f803a6a66462824"
-  integrity sha512-Nq3PiiILU3E4FRbHWW4mnbGrzphS9TAzbwqPbHG0dcfkfBdfLAhnojDSBMlYu6zpqRLvsr4Lovsdf2OiCXhfhQ==
+type-coverage@^2.14.8:
+  version "2.14.8"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.14.8.tgz#776fc6bd5c667f5df4f0c2b5984fe046b2aa3901"
+  integrity sha512-PPsM6NbW0gYicnvWgXReqPK9Y8flHSDWQNPXSFRNmEC/uiCLlxpzHiyZ53tG0FlSIsoY0LHpVbwMy7505efd8Q==
   dependencies:
     minimist "1"
-    type-coverage-core "^2.14.7"
+    type-coverage-core "^2.14.8"
 
 type-detect@4.0.8:
   version "4.0.8"
