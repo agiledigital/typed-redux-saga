@@ -141,20 +141,24 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.delay(120, true);
 
   // $ExpectType never
-  yield* Effects.throttle(25, "FOO", function* (): Effects.SagaGenerator<
-    number
-  > {
-    yield* Effects.take(chan);
-    return 22;
-  });
+  yield* Effects.throttle(
+    25,
+    "FOO",
+    function* (): Effects.SagaGenerator<number> {
+      yield* Effects.take(chan);
+      return 22;
+    },
+  );
 
   // $ExpectType never
-  yield* Effects.debounce(25, "FOO", function* (): Effects.SagaGenerator<
-    number
-  > {
-    yield* Effects.take(chan);
-    return 22;
-  });
+  yield* Effects.debounce(
+    25,
+    "FOO",
+    function* (): Effects.SagaGenerator<number> {
+      yield* Effects.take(chan);
+      return 22;
+    },
+  );
 
   // $ExpectType number
   yield* Effects.retry(5, 100, function* (): Effects.SagaGenerator<number> {

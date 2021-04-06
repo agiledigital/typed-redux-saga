@@ -15,7 +15,6 @@ plugins:
 extends:
   - 'eslint:recommended'
   - 'typed-fp'
-  - 'prettier/@typescript-eslint'
   - 'plugin:prettier/recommended'
   - 'plugin:import/errors'
   - 'plugin:import/warnings'
