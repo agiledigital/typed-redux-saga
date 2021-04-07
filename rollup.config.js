@@ -6,7 +6,7 @@
 import pkg from "./package.json";
 
 export default {
-  input: ["src/index.js", "src/macro.js"],
+  input: ["src/index.js", "src/macro.js", "src/effects-for-action-type.js"],
   output: [
     {
       dir: "dist/cjs/",

@@ -14,7 +14,8 @@
     "baseUrl": ".",
     "paths": {
       "typed-redux-saga": ["./types"],
-      "typed-redux-saga/macro": ["./types/macro"]
+      "typed-redux-saga/macro": ["./types/macro"],
+      "typed-redux-saga/effects-for-action-type": ["./types/effects-for-action-type"]
     }
   },
   "include": ["types/*", "src/*", "typings/*", "tests/*", "rollup.config.js", "generateTemplates.ts"]
