@@ -43,7 +43,7 @@
     "babel-plugin-tester": "^10.0.0",
     "codecov": "^3.8.1",
     "copyfiles": "^2.4.1",
-    "dtslint": "^4.0.8",
+    "dtslint": "^4.0.9",
     "eslint": "^7.23.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-config-typed-fp": "^1.4.1",
