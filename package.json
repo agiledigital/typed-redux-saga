@@ -41,7 +41,7 @@
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "babel-plugin-tester": "^10.0.0",
-    "codecov": "^3.8.1",
+    "codecov": "^3.8.2",
     "copyfiles": "^2.4.1",
     "dtslint": "^4.0.9",
     "eslint": "^7.24.0",
