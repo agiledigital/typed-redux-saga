@@ -114,6 +114,13 @@ function* myEffect() {
 This gives you all the benefits of strong types during development without
 the overhead induced by all the calls to `typed-redux-saga`'s proxies.
 
+## ESLint Rules
+
+In order to avoid accidentally importing the original effects instead of the typed effects, you can use this ESLint plugin:
+https://github.com/jambit/eslint-plugin-typed-redux-saga
+
+It includes an auto-fix option, so you can use it to easily convert your codebase from redux-saga to typed-redux-saga!
+
 ## Credits
 
 Thanks to all the [contributors](https://github.com/agiledigital/typed-redux-saga/graphs/contributors) and especially thanks to [@gilbsgilbs](https://github.com/gilbsgilbs) for his huge contribution.
