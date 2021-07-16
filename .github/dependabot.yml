@@ -1,0 +1,62 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "19:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.28
+    - 14.14.31
+    - 14.14.41
+  - dependency-name: rollup
+    versions:
+    - 2.38.4
+    - 2.41.5
+    - 2.42.3
+    - 2.45.1
+  - dependency-name: type-coverage
+    versions:
+    - 2.15.1
+    - 2.16.0
+    - 2.16.1
+    - 2.16.2
+    - 2.17.1
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.14.2
+    - 4.15.1
+    - 4.16.0
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: "@types/fs-extra"
+    versions:
+    - 9.0.10
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.15.1
+    - 4.16.0
+    - 4.19.0
+    - 4.21.0
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.12.17
+    - 7.13.8
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.12.13
+    - 7.12.17
+    - 7.13.1
+  - dependency-name: eslint-import-resolver-typescript
+    versions:
+    - 2.4.0
+  - dependency-name: typescript
+    versions:
+    - 4.1.5
+  - dependency-name: "@types/nunjucks"
+    versions:
+    - 3.1.4
