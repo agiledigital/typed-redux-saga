@@ -12,9 +12,9 @@ const env = new Environment(new FileSystemLoader("."), {
   autoescape: false,
 });
 
-const templatePaths: readonly string[] = readdirSync(
-  TEMPLATES_PATH,
-).filter((s) => s.endsWith(".njk"));
+const templatePaths: readonly string[] = readdirSync(TEMPLATES_PATH).filter(
+  (s) => s.endsWith(".njk"),
+);
 
 for (const templatePath of templatePaths) {
   console.log(`Rendering ${templatePath}.`);

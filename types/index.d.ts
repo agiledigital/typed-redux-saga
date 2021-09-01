@@ -76,7 +76,7 @@ export function takeEvery<P extends ActionPattern>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeEvery<
   P extends ActionPattern,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: P,
   worker: Fn,
@@ -88,7 +88,7 @@ export function takeEvery<A extends Action>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeEvery<
   A extends Action,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: ActionPattern<A>,
   worker: Fn,
@@ -110,7 +110,7 @@ export function takeLatest<P extends ActionPattern>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeLatest<
   P extends ActionPattern,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: P,
   worker: Fn,
@@ -122,7 +122,7 @@ export function takeLatest<A extends Action>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeLatest<
   A extends Action,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: ActionPattern<A>,
   worker: Fn,
@@ -144,7 +144,7 @@ export function takeLeading<P extends ActionPattern>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeLeading<
   P extends ActionPattern,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: P,
   worker: Fn,
@@ -156,7 +156,7 @@ export function takeLeading<A extends Action>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function takeLeading<
   A extends Action,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   pattern: ActionPattern<A>,
   worker: Fn,
@@ -192,7 +192,7 @@ export function call<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
   ...args: Parameters<Ctx[Name]>
@@ -204,7 +204,7 @@ export function call<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Parameters<Ctx[Name]>
@@ -225,7 +225,7 @@ export function apply<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctx: Ctx,
   fnName: Name,
@@ -251,7 +251,7 @@ export function cps<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => void;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
   ...args: CpsFunctionParameters<Ctx[Name]>
@@ -260,7 +260,7 @@ export function cps<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => void;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: CpsFunctionParameters<Ctx[Name]>
@@ -291,7 +291,7 @@ export function fork<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
   ...args: Parameters<Ctx[Name]>
@@ -303,7 +303,7 @@ export function fork<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Parameters<Ctx[Name]>
@@ -337,7 +337,7 @@ export function spawn<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
   ...args: Parameters<Ctx[Name]>
@@ -349,7 +349,7 @@ export function spawn<
   Ctx extends {
     [P in Name]: (this: Ctx, ...args: any[]) => any;
   },
-  Name extends string
+  Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Parameters<Ctx[Name]>
@@ -421,7 +421,7 @@ export function throttle<P extends ActionPattern>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function throttle<
   P extends ActionPattern,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   ms: number,
   pattern: P,
@@ -458,7 +458,7 @@ export function debounce<P extends ActionPattern>(
 ): SagaGenerator<never, ForkEffect<never>>;
 export function debounce<
   P extends ActionPattern,
-  Fn extends (...args: any[]) => any
+  Fn extends (...args: any[]) => any,
 >(
   ms: number,
   pattern: P,
