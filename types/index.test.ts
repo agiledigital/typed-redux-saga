@@ -97,7 +97,7 @@ function* mySaga(): Effects.SagaGenerator<void> {
     return 22;
   });
 
-  // $ExpectType void
+  // $ExpectType number
   yield* Effects.join(task);
 
   // $ExpectType void
