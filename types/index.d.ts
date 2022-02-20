@@ -372,8 +372,14 @@ export function spawn<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
   ForkEffect<SagaReturnType<Fn>>
 >;
 
-export function join(task: Task): SagaGenerator<void, JoinEffect>;
-export function join(tasks: Task[]): SagaGenerator<void, JoinEffect>;
+type ReturnTypeOfTask<T> = T extends FixedTask<infer P> ? P : void;
+
+export function join<T extends Task>(
+  task: T,
+): SagaGenerator<ReturnTypeOfTask<T>, JoinEffect>;
+export function join<T extends Task>(
+  tasks: T[],
+): SagaGenerator<ReturnTypeOfTask<T>, JoinEffect>;
 
 export function cancel(task: Task): SagaGenerator<void, CancelEffect>;
 export function cancel(tasks: Task[]): SagaGenerator<void, CancelEffect>;
