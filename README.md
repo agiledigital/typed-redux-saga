@@ -5,10 +5,6 @@
 [![Type Coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fagiledigital%2Ftyped-redux-saga%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![codecov](https://codecov.io/gh/agiledigital/typed-redux-saga/branch/master/graph/badge.svg?token=ZNTWQNDKL8)](https://codecov.io/gh/agiledigital/typed-redux-saga)
 
-[![dependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/status.svg)](https://david-dm.org/agiledigital/typed-redux-saga)
-[![devDependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/dev-status.svg)](https://david-dm.org/agiledigital/typed-redux-saga?type=dev)
-[![peerDependencies Status](https://david-dm.org/agiledigital/typed-redux-saga/peer-status.svg)](https://david-dm.org/agiledigital/typed-redux-saga?type=peer)
-
 An attempt to bring better TypeScript typing to redux-saga.
 
 Requires TypeScript 3.6 or later.
