@@ -213,4 +213,42 @@ function* mySaga(): Effects.SagaGenerator<void> {
       return "hello";
     }),
   });
+
+  function outer<T>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    emit: (item: T) => T,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    handler: (item: T) => T,
+  ) {}
+  const obj = { outer };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function makeEmit<T>(x: T, y: T) {
+    return (item: T) => item;
+  }
+
+  function handler(item: number) {
+    return item;
+  }
+  const emitter = makeEmit<number>(2, 3);
+
+  yield* Effects.call(outer, emitter, handler);
+  yield* Effects.call([obj, obj.outer], emitter, handler);
+  yield* Effects.call([obj, "outer"], emitter, handler);
+  yield* Effects.call({ context: obj, fn: obj.outer }, emitter, handler);
+  yield* Effects.call({ context: obj, fn: "outer" }, emitter, handler);
+
+  yield* Effects.apply(obj, outer, [emitter, handler]);
+  yield* Effects.apply(obj, "outer", [emitter, handler]);
+
+  yield* Effects.fork(outer, emitter, handler);
+  yield* Effects.fork([obj, obj.outer], emitter, handler);
+  yield* Effects.fork([obj, "outer"], emitter, handler);
+  yield* Effects.fork({ context: obj, fn: obj.outer }, emitter, handler);
+  yield* Effects.fork({ context: obj, fn: "outer" }, emitter, handler);
+
+  yield* Effects.spawn(outer, emitter, handler);
+  yield* Effects.spawn([obj, obj.outer], emitter, handler);
+  yield* Effects.spawn([obj, "outer"], emitter, handler);
+  yield* Effects.spawn({ context: obj, fn: obj.outer }, emitter, handler);
+  yield* Effects.spawn({ context: obj, fn: "outer" }, emitter, handler);
 }

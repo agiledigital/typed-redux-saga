@@ -184,60 +184,75 @@ export function putResolve<A extends Action>(
   action: A,
 ): SagaGenerator<A, PutEffect<A>>;
 
-export function call<Fn extends (...args: any[]) => any>(
+export function call<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
 export function call<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   SagaReturnType<Ctx[Name]>,
   CallEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function call<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   SagaReturnType<Ctx[Name]>,
   CallEffect<SagaReturnType<Ctx[Name]>>
 >;
-export function call<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function call<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: [Ctx, Fn],
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
-export function call<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function call<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: { context: Ctx; fn: Fn },
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
 
 export function apply<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctx: Ctx,
   fnName: Name,
-  args: Parameters<Ctx[Name]>,
+  args: Args,
 ): SagaGenerator<
   SagaReturnType<Ctx[Name]>,
   CallEffect<SagaReturnType<Ctx[Name]>>
 >;
-export function apply<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function apply<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctx: Ctx,
   fn: Fn,
-  args: Parameters<Fn>,
+  args: Args,
 ): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
 
 export function cps<Fn extends (cb: CpsCallback<any>) => any>(
@@ -280,93 +295,113 @@ interface FixedTask<A> extends Task {
   result: <T = A>() => T | undefined;
   toPromise: <T = A>() => Promise<T>;
 }
-export function fork<Fn extends (...args: any[]) => any>(
+export function fork<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
 >;
 export function fork<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Ctx[Name]>>,
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function fork<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Ctx[Name]>>,
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
-export function fork<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function fork<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: [Ctx, Fn],
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
 >;
-export function fork<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function fork<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: { context: Ctx; fn: Fn },
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
 >;
 
-export function spawn<Fn extends (...args: any[]) => any>(
+export function spawn<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
 >;
 export function spawn<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: [Ctx, Name],
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Ctx[Name]>>,
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
 export function spawn<
+  Args extends any[],
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: any[]) => any;
+    [P in Name]: (this: Ctx, ...args: Args) => any;
   },
   Name extends string,
 >(
   ctxAndFnName: { context: Ctx; fn: Name },
-  ...args: Parameters<Ctx[Name]>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Ctx[Name]>>,
   ForkEffect<SagaReturnType<Ctx[Name]>>
 >;
-export function spawn<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function spawn<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: [Ctx, Fn],
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
 >;
-export function spawn<Ctx, Fn extends (this: Ctx, ...args: any[]) => any>(
+export function spawn<
+  Ctx,
+  Args extends any[],
+  Fn extends (this: Ctx, ...args: Args) => any,
+>(
   ctxAndFn: { context: Ctx; fn: Fn },
-  ...args: Parameters<Fn>
+  ...args: Args
 ): SagaGenerator<
   FixedTask<SagaReturnType<Fn>>,
   ForkEffect<SagaReturnType<Fn>>
