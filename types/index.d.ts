@@ -6,7 +6,11 @@
 
 // TODO remove this eslint-disable
 // eslint-disable-next-line import/no-unresolved
-import { ActionMatchingPattern, Buffer } from "@redux-saga/types";
+import {
+  ActionMatchingPattern,
+  Buffer,
+  SagaIterator,
+} from "@redux-saga/types";
 import { Action } from "redux";
 import {
   TakeableChannel,
@@ -44,6 +48,14 @@ import {
   Effect,
   CallEffectDescriptor,
 } from "redux-saga/effects";
+
+export type ExtractReturnValue<ReturnType> = ReturnType extends SagaIterator<
+  infer SagaReturnType
+>
+  ? SagaReturnType
+  : ReturnType extends Promise<infer PromiseReturnType>
+  ? PromiseReturnType
+  : ReturnType;
 
 export type SagaGenerator<RT, E extends Effect = Effect<any, any>> = Generator<
   E,
@@ -184,10 +196,14 @@ export function putResolve<A extends Action>(
   action: A,
 ): SagaGenerator<A, PutEffect<A>>;
 
-export function call<Args extends any[], Fn extends (...args: Args) => any>(
-  fn: Fn,
+export function call<Args extends unknown[], Return>(
+  fn: (...args: Args) => Return,
   ...args: Args
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+): SagaGenerator<
+  ExtractReturnValue<Return>,
+  CallEffect<ExtractReturnValue<Return>>
+>;
+
 export function call<
   Args extends any[],
   Ctx extends {
