@@ -205,17 +205,19 @@ export function call<Args extends unknown[], Return>(
 >;
 
 export function call<
-  Args extends any[],
+  FnName extends keyof Ctx,
+  Args extends unknown[],
+  Return,
+  Fn extends (this: Ctx, ...args: Args) => Return,
   Ctx extends {
-    [P in Name]: (this: Ctx, ...args: Args) => any;
+    [Key in FnName]: Fn;
   },
-  Name extends string,
 >(
-  ctxAndFnName: [Ctx, Name],
+  ctxAndFnName: [Ctx, FnName],
   ...args: Args
 ): SagaGenerator<
-  SagaReturnType<Ctx[Name]>,
-  CallEffect<SagaReturnType<Ctx[Name]>>
+  ExtractReturnValue<Return>,
+  CallEffect<ExtractReturnValue<Return>>
 >;
 export function call<
   Args extends any[],

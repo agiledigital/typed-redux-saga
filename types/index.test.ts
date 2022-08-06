@@ -255,4 +255,8 @@ function* mySaga(): Effects.SagaGenerator<void> {
   const identity = <T>(x: T): T => x;
   // $ExpectType "foo"
   yield* Effects.call(identity, "foo" as const);
+
+  const ctx = { identity } as const;
+  // $ExpectType "foo"
+  yield* Effects.call([ctx, "identity"], "foo" as const);
 }
