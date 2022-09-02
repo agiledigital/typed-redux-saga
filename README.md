@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/agiledigital/typed-redux-saga.svg?branch=master)](https://travis-ci.org/agiledigital/typed-redux-saga)
 [![Type Coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fagiledigital%2Ftyped-redux-saga%2Fmaster%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
 [![codecov](https://codecov.io/gh/agiledigital/typed-redux-saga/branch/master/graph/badge.svg?token=ZNTWQNDKL8)](https://codecov.io/gh/agiledigital/typed-redux-saga)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/agiledigital/typed-redux-saga)
 
 An attempt to bring better TypeScript typing to redux-saga.
 
