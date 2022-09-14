@@ -7,6 +7,11 @@
   "module": "dist/es/index.js",
   "types": "./dist",
   "sideEffects": false,
+  "files": [
+    "dist",
+    "src",
+    "types"
+  ],
   "engines": {
     "node": ">=10.0.0"
   },
