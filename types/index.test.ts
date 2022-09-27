@@ -214,6 +214,12 @@ function* mySaga(): Effects.SagaGenerator<void> {
     }),
   });
 
+  // $ExpectType boolean
+  yield* Effects.call(function* () {
+    yield* Effects.race({ timeout: Effects.delay(1) });
+    return true;
+  });
+
   function outer<T>(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     emit: (item: T) => T,
