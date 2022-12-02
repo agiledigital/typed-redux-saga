@@ -251,4 +251,21 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.spawn([obj, "outer"], emitter, handler);
   yield* Effects.spawn({ context: obj, fn: obj.outer }, emitter, handler);
   yield* Effects.spawn({ context: obj, fn: "outer" }, emitter, handler);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function handleArgumentThatIsPartOfUnion(requestId: 27 | 28) {
+    return 22;
+  }
+  // $ExpectType number
+  yield* Effects.call(handleArgumentThatIsPartOfUnion, 27);
+
+  type FetchOptions = {
+    readonly method?: "GET" | "POST";
+  };
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function* ourFetch(options: FetchOptions) {}
+  // Fails in 1.5 as argument is widened to string it seems (works in 1.4)
+  yield* Effects.call(ourFetch, { method: "POST" });
+  // Works (in 1.5 and 1.4, but this workaround is not possible for the numeric case above)
+  yield* Effects.call(ourFetch, { method: "POST" as const });
 }
