@@ -34,7 +34,7 @@
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
-    "@types/babel-plugin-macros": "^2.8.5",
+    "@types/babel-plugin-macros": "^3.0.0",
     "@types/fs-extra": "^9.0.12",
     "@types/node": "^16.7.10",
     "@types/nunjucks": "^3.1.5",
