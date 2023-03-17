@@ -2860,10 +2860,10 @@ eslint-config-prettier@^8.3.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
-eslint-config-typed-fp@^3.0.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-3.3.0.tgz#13c3de0143b8f46f02ba8b71ddb064f02af2a6ba"
-  integrity sha512-kP6gUEtjvbFS0l1KI0672Xt3Wx5h8a1BdQBu8ggvKFsXSgg2JV8vq17IbFcPO+dz7AgqhBtiwzV92gVvUCy9og==
+eslint-config-typed-fp@^4.0.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-typed-fp/-/eslint-config-typed-fp-4.4.0.tgz#0c45a7c8943630ff294802be2d7e163dd8ae9a9c"
+  integrity sha512-+rlkdxLv4tK6FOEwgVhwUHFIDHsMRnImlYSFdw9N8nfXzWW+Hag+V4T9taHrv/09v4+vFfOVxhxx1ve+a+zgKA==
 
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
