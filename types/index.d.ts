@@ -15,6 +15,7 @@ import {
   Task,
   FlushableChannel,
   Channel,
+  SagaIterator,
 } from "redux-saga";
 import {
   ActionPattern,
@@ -26,7 +27,6 @@ import {
   PutEffect,
   ChannelPutEffect,
   CallEffect,
-  SagaReturnType,
   CpsCallback,
   CpsEffect,
   CpsFunctionParameters,
@@ -184,10 +184,16 @@ export function putResolve<A extends Action>(
   action: A,
 ): SagaGenerator<A, PutEffect<A>>;
 
+export type SagaReturnType<S extends Function, Args extends any[]> =
+  S extends (...args: Args) => SagaIterator<infer RT> ? RT :
+  S extends (...args: Args) => Promise<infer RT> ? RT :
+  S extends (...args: Args) => infer RT ? RT :
+  never;
+
 export function call<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
   ...args: Args
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+): SagaGenerator<SagaReturnType<Fn, Args>, CallEffect<SagaReturnType<Fn, Args>>>;
 export function call<
   Args extends any[],
   Ctx extends {
@@ -198,8 +204,8 @@ export function call<
   ctxAndFnName: [Ctx, Name],
   ...args: Args
 ): SagaGenerator<
-  SagaReturnType<Ctx[Name]>,
-  CallEffect<SagaReturnType<Ctx[Name]>>
+  SagaReturnType<Ctx[Name], Args>,
+  CallEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function call<
   Args extends any[],
@@ -211,8 +217,8 @@ export function call<
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Args
 ): SagaGenerator<
-  SagaReturnType<Ctx[Name]>,
-  CallEffect<SagaReturnType<Ctx[Name]>>
+  SagaReturnType<Ctx[Name], Args>,
+  CallEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function call<
   Ctx,
@@ -221,7 +227,7 @@ export function call<
 >(
   ctxAndFn: [Ctx, Fn],
   ...args: Args
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+): SagaGenerator<SagaReturnType<Fn, Args>, CallEffect<SagaReturnType<Fn, Args>>>;
 export function call<
   Ctx,
   Args extends any[],
@@ -229,7 +235,7 @@ export function call<
 >(
   ctxAndFn: { context: Ctx; fn: Fn },
   ...args: Args
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+): SagaGenerator<SagaReturnType<Fn, Args>, CallEffect<SagaReturnType<Fn, Args>>>;
 
 export function apply<
   Args extends any[],
@@ -242,8 +248,8 @@ export function apply<
   fnName: Name,
   args: Args,
 ): SagaGenerator<
-  SagaReturnType<Ctx[Name]>,
-  CallEffect<SagaReturnType<Ctx[Name]>>
+  SagaReturnType<Ctx[Name], Args>,
+  CallEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function apply<
   Ctx,
@@ -253,7 +259,7 @@ export function apply<
   ctx: Ctx,
   fn: Fn,
   args: Args,
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+): SagaGenerator<SagaReturnType<Fn, Args>, CallEffect<SagaReturnType<Fn, Args>>>;
 
 export function cps<Fn extends (cb: CpsCallback<any>) => any>(
   fn: Fn,
@@ -299,8 +305,8 @@ export function fork<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 export function fork<
   Args extends any[],
@@ -312,8 +318,8 @@ export function fork<
   ctxAndFnName: [Ctx, Name],
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Ctx[Name]>>,
-  ForkEffect<SagaReturnType<Ctx[Name]>>
+  FixedTask<SagaReturnType<Ctx[Name], Args>>,
+  ForkEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function fork<
   Args extends any[],
@@ -325,8 +331,8 @@ export function fork<
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Ctx[Name]>>,
-  ForkEffect<SagaReturnType<Ctx[Name]>>
+  FixedTask<SagaReturnType<Ctx[Name], Args>>,
+  ForkEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function fork<
   Ctx,
@@ -336,8 +342,8 @@ export function fork<
   ctxAndFn: [Ctx, Fn],
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 export function fork<
   Ctx,
@@ -347,16 +353,16 @@ export function fork<
   ctxAndFn: { context: Ctx; fn: Fn },
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 
 export function spawn<Args extends any[], Fn extends (...args: Args) => any>(
   fn: Fn,
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 export function spawn<
   Args extends any[],
@@ -368,8 +374,8 @@ export function spawn<
   ctxAndFnName: [Ctx, Name],
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Ctx[Name]>>,
-  ForkEffect<SagaReturnType<Ctx[Name]>>
+  FixedTask<SagaReturnType<Ctx[Name], Args>>,
+  ForkEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function spawn<
   Args extends any[],
@@ -381,8 +387,8 @@ export function spawn<
   ctxAndFnName: { context: Ctx; fn: Name },
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Ctx[Name]>>,
-  ForkEffect<SagaReturnType<Ctx[Name]>>
+  FixedTask<SagaReturnType<Ctx[Name], Args>>,
+  ForkEffect<SagaReturnType<Ctx[Name], Args>>
 >;
 export function spawn<
   Ctx,
@@ -392,8 +398,8 @@ export function spawn<
   ctxAndFn: [Ctx, Fn],
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 export function spawn<
   Ctx,
@@ -403,8 +409,8 @@ export function spawn<
   ctxAndFn: { context: Ctx; fn: Fn },
   ...args: Args
 ): SagaGenerator<
-  FixedTask<SagaReturnType<Fn>>,
-  ForkEffect<SagaReturnType<Fn>>
+  FixedTask<SagaReturnType<Fn, Args>>,
+  ForkEffect<SagaReturnType<Fn, Args>>
 >;
 
 type ReturnTypeOfTask<T> = T extends FixedTask<infer P> ? P : void;
@@ -530,12 +536,12 @@ export function debounce<T, Fn extends (...args: any[]) => any>(
   ...args: HelperWorkerParameters<T, Fn>
 ): SagaGenerator<never, ForkEffect<never>>;
 
-export function retry<Fn extends (...args: any[]) => any>(
+export function retry<Args extends any[], Fn extends (...args: Args) => any>(
   maxTries: number,
   delayLength: number,
   fn: Fn,
-  ...args: Parameters<Fn>
-): SagaGenerator<SagaReturnType<Fn>, CallEffect<SagaReturnType<Fn>>>;
+  ...args: Args
+): SagaGenerator<SagaReturnType<Fn, Args>, CallEffect<SagaReturnType<Fn, Args>>>;
 
 type EffectReturnType<T> = T extends SagaGenerator<infer RT, any>
   ? RT
