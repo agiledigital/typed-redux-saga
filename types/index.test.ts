@@ -13,6 +13,10 @@ function* mySaga(): Effects.SagaGenerator<void> {
   yield* Effects.take("FOO"); // $ExpectType Action<any>
   type FooAction = { readonly type: "FOO" };
   yield* Effects.take<FooAction>("FOO"); // $ExpectType FooAction
+  const fooActionCreator = (payload: number) => ({ type: 'foo' as const, payload });
+  const barActionCreator = (payload: string[]) => ({ type: 'bar' as const, payload });
+  // $ExpectType { type: "foo"; payload: number; } | { type: "bar"; payload: string[]; }
+  yield* Effects.take([fooActionCreator, barActionCreator]);
   yield* Effects.takeMaybe("FOO"); // $ExpectType Action<any>
   yield* Effects.takeMaybe<FooAction>("FOO"); // $ExpectType FooAction
 
