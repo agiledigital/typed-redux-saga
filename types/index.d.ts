@@ -50,6 +50,8 @@ export type SagaGenerator<RT, E extends Effect = Effect<any, any>> = Generator<
   RT
 >;
 
+type ExtractAction<T> = T extends ActionPattern<infer A> ? A : never;
+
 export function take<A extends Action>(
   pattern?: ActionPattern<A>,
 ): SagaGenerator<A, TakeEffect>;
@@ -58,6 +60,9 @@ export function take<T>(
   multicastPattern?: Pattern<T>,
 ): SagaGenerator<T, ChannelTakeEffect<T>>;
 export function take(pattern?: ActionPattern): SagaGenerator<any, TakeEffect>;
+export function take<T extends ActionPattern[]>(
+  patterns: T,
+): SagaGenerator<ExtractAction<T>, TakeEffect>;
 
 export function takeMaybe<A extends Action>(
   pattern?: ActionPattern<A>,
