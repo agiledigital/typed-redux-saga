@@ -38,7 +38,7 @@ function* fetchUser(action) {
   ...
 }
 
-function* fetchConfig() {}
+function* fetchConfig() {
   // `result` has type any
   const result = yield all({
     api1: call(Api.fetchConfig1),
@@ -64,7 +64,7 @@ function* fetchUser(action) {
   ...
 }
 
-function* fetchConfig() {}
+function* fetchConfig() {
   // Note yield is replaced with yield*
   // `result` now has type {api1: Config1, api2: Config2}
   const result = yield* all({
