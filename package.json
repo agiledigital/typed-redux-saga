@@ -14,6 +14,7 @@
     "type": "git",
     "url": "https://github.com/agiledigital/typed-redux-saga.git"
   },
+  "homepage": "https://github.com/agiledigital/typed-redux-saga#readme",
   "bugs": {
     "url": "https://github.com/agiledigital/typed-redux-saga/issues"
   },
